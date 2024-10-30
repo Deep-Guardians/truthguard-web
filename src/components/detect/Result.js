@@ -39,7 +39,7 @@ function Result() {
   return (
     <div className="result-container">
       <div className="navy-banner">
-        <h2>판단 결과를 확인합니다람쥐</h2>
+        <h2>판단 결과 확인</h2>
       </div>
 
       <button onClick={() => navigate('/')} className="home-button">

@@ -38,13 +38,13 @@ function Main() {
     setLoading(true); // 요청 시작
     try {
       // TODO [강윤서] : 노이즈 삽입 api 연결
-      const response = await axios.get('https://www.naver.com');
-      console.log('네이버 응답:', response.data);
+      // const response = await axios.get('https://www.naver.com');
+      // console.log('네이버 응답:', response.data);
     } catch (error) {
-      console.error('네이버 요청 중 오류 발생:', error);
+      // console.error('네이버 요청 중 오류 발생:', error);
     } finally {
       setLoading(false); // 요청 종료
-    //   navigate('/predict', { state: { preview } });
+      navigate('/disrupt/compare', { state: { preview } });
     }
   };
 
