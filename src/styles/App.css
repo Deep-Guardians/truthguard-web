@@ -21,7 +21,7 @@ body, .App, button {
 /* #root가 화면 전체를 차지하도록 설정 */
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;  /* 가로 중앙 정렬 */
   align-items: center;      /* 세로 중앙 정렬 */
@@ -37,12 +37,13 @@ body, .App, button {
 
 .container {
   margin-top: 100px;
+  margin-bottom: 100px;
   width: 80%;
   max-width: 800px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 40px; /* 여백을 늘려 더 깔끔하게 */
+  padding: 40px 40px;
 }
 
 .nav {
@@ -75,17 +76,15 @@ body, .App, button {
 }
 
 .navy-banner {
-  background-color: #393E76;
-  color: white;
-  padding: 40px 20px;
-  border-radius: 10px;
-  width: 100%;
+  margin-bottom: 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  padding: 30px 50px; /* 배너 내부 패딩 */
+  width: 80%;
   max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .buttons {
