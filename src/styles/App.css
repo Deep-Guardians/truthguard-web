@@ -63,7 +63,7 @@ body, .App, button {
   color: #393E76;
 }
 
-.content {
+/* .content {
   display: none;
 }
 
@@ -72,8 +72,8 @@ body, .App, button {
   flex-direction: column;
   align-items: center;
   height: 100%; /* Full height to center-align the banner */
-  justify-content: center;
-}
+  /* justify-content: center; */
+/* } */
 
 .navy-banner {
   margin-bottom: 20px;
@@ -92,20 +92,6 @@ body, .App, button {
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
-}
-
-button {
-  background-color: navy;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #00509e;
 }
 
 .dots {

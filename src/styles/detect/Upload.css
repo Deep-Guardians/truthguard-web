@@ -8,14 +8,11 @@
   background-color: #f5f5f5;
 }
 
-/* .navy-banner {
-  background-color: #393E76;
-  color: white;
+.navy-banner {
+  width: 550px;
   padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 20px;
-} */
+  font-size: 30px;
+}
 
 .upload-container {
   display: flex;
@@ -69,6 +66,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  font-size: 30px;
 }
 
 .judge-button:hover {

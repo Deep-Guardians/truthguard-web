@@ -30,7 +30,7 @@ function Result() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // TODO post api 만들기
+      // TODO 피드백 post api 만들기
     } catch (error) {
       console.error('오류 발생:', error);
       alert('오류가 발생했습니다. 나중에 다시 시도해주세요.');
@@ -96,7 +96,6 @@ function Result() {
         </form>
       </div>
     </div>
-    
   );
 }
 
