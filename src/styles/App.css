@@ -11,6 +11,14 @@
   font-style: normal;
 }
 
+:root {
+  --primary-color: #393E76;
+  --secondary-color: #f5f5f5;
+  --button-color: navy;
+  --button-hover-color: #00509e;
+  --text-color: white;
+}
+
 body {
   justify-content: center;
 }
@@ -62,18 +70,6 @@ body, .App, button {
   font-weight: bold;
   color: #393E76;
 }
-
-/* .content {
-  display: none;
-}
-
-.content.active {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%; /* Full height to center-align the banner */
-  /* justify-content: center; */
-/* } */
 
 .navy-banner {
   margin-bottom: 20px;
