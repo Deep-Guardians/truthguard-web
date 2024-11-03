@@ -17,6 +17,9 @@ function Result() {
   const { loading, result, error } = state;
 
   useEffect(() => {
+    if (loading) {
+      setIcon('/loading.gif');
+    }
     if (result && result.result) {
       console.log('확률:', result.result);
       if (result.result > 50) { // 딥페이크 영상물
@@ -39,7 +42,7 @@ function Result() {
 
   return (
     <div className="result-container">
-      <div className="navy-banner">
+      <div className="title">
         <h2>판단 결과 확인</h2>
       </div>
 
@@ -61,7 +64,7 @@ function Result() {
           )}
         </div>
         {/* 상태에 따라 내용 표시 */}
-        {loading && <p>처리 중입니다...</p>}
+        {/* {loading && <p>처리 중입니다...</p>} */}
         {error && <p className="error-text">{error}</p>}
         {result && result.result && (
           <div className="result-box">

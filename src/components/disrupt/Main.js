@@ -50,7 +50,7 @@ function Main() {
 
   return (
     <div className="main-container">
-      <div className="navy-banner">
+      <div className="title">
         <h2>사진을 업로드해주세요.</h2>
       </div>
 
@@ -72,7 +72,7 @@ function Main() {
       </div>
 
       <button className="judge-button" onClick={handleJudge} disabled={loading}>
-        {loading ? '요청 중...' : '판단하기'}
+        {loading ? '요청 중...' : '삽입하기'}
       </button>
     </div>
   );

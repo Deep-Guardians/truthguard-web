@@ -65,7 +65,7 @@ function Upload() {
 
   return (
     <div className="main-container">
-      <div className="navy-banner">
+      <div className="title">
         <h2>딥페이크 영상물인지 판단하고 싶은 영상을 업로드해주세요.</h2>
       </div>
       <div className="upload-container">
