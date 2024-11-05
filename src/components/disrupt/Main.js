@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import "../../styles/disrupt/Main.css";
 
 function Main() {
   const [preview, setPreview] = useState(null);
+  const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false); // 요청 상태 관리
   const navigate = useNavigate();
+  const previewRef = useRef(null); // 미리보기 이미지의 참조 생성
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => setPreview(reader.result);
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        setFile(file);
+      }
       reader.readAsDataURL(file);
     }
   };
@@ -22,7 +27,10 @@ function Main() {
     const file = e.dataTransfer.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => setPreview(reader.result);
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        setFile(file);
+      }
       reader.readAsDataURL(file);
     }
   };
@@ -34,17 +42,21 @@ function Main() {
       alert('이미지를 업로드해주세요!');
       return;
     }
-
     setLoading(true); // 요청 시작
     try {
-      // TODO [강윤서] : 노이즈 삽입 api 연결
-      // const response = await axios.get('https://www.naver.com');
-      // console.log('네이버 응답:', response.data);
+      const formData = new FormData();
+      formData.append('image', file);
+      const response = await axios.post("https://truthguard.site/disrupt/disrupt/generate", formData, {
+        headers: {
+          'Content-Type': "multipart/form-data",
+        }
+      });
+      // console.log(response);
+      navigate('/disrupt/compare', { state: { preview, disruptedImage: response.data.data } });
     } catch (error) {
-      // console.error('네이버 요청 중 오류 발생:', error);
+      console.error(error);
     } finally {
       setLoading(false); // 요청 종료
-      navigate('/disrupt/compare', { state: { preview } });
     }
   };
 
@@ -65,8 +77,23 @@ function Main() {
         </div>
 
         {preview && (
-          <div className="preview-box">
-            <img src={preview} alt="미리보기" />
+          <div className="preview-box" style={{ position: 'relative' }}>
+            {loading && (
+              <img
+                src="/loading.gif"
+                alt="로딩중"
+                className="loading-icon"
+                style={{
+                  height: previewRef.current ? previewRef.current.height : '50px',
+                }}
+              />
+            )}
+            <img
+              src={preview}
+              alt="미리보기"
+              ref={previewRef} // 미리보기 이미지에 ref 연결
+              className="preview-img"
+            />
           </div>
         )}
       </div>
